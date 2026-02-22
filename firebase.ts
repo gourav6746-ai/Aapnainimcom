@@ -32,3 +32,9 @@ export const banksCollection = collection(db, 'bankAccounts');
 
 // Re-export firestore functions
 export { addDoc, query, where, onSnapshot, orderBy, deleteDoc, doc, collection, updateDoc };
+
+import { enableIndexedDbPersistence } from 'firebase/firestore'
+
+enableIndexedDbPersistence(db).catch((err) => {
+  console.log('Offline persistence error:', err)
+})
